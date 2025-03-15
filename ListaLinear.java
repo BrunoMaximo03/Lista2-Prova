@@ -13,7 +13,7 @@ public class ListaLinear {
         n = 0;
     }
 
-    public void inserirElementoInicio(int elemento) throws Exception { // insere no Inicio
+    public void inserirElementoInicio(int elemento) throws Exception { // insere no INICIO
         if (n >= array.length) {
             throw new Exception(
                     "Falha ao inserir elemento no inicio. O numero de elementos no array e maior do que o tamanho pre-definido.");
@@ -26,7 +26,7 @@ public class ListaLinear {
         n++; // atualizando a lista, após adicionar um elemento;
     }
 
-    public void inserirElementoFim(int elemento) throws Exception { // insere no final
+    public void inserirElementoFim(int elemento) throws Exception { // insere no FINAL
         if (n >= array.length) {
             throw new Exception(
                     "Falha ao inserir elemento no final. O numero de elementos no array e maior do que o tamanho pre-definido.");
@@ -38,7 +38,7 @@ public class ListaLinear {
     public void inserirElementoPosicaoDesejada(int elemento, int posicao) throws Exception { // insere na posicao "POS"
         if (n >= array.length) {
             throw new Exception(
-                    "Falha ao inserir elemento no final. O numero de elementos no array e maior do que o tamanho pre-definido.");
+                    "Falha ao inserir elemento na posicao. O numero de elementos no array e maior do que o tamanho pre-definido.");
         }
         if (posicao < 0 || posicao > n) {
             throw new Exception("Falha ao inserir elemento na posicao " + posicao + ". Posicao indisponivel!");
@@ -49,9 +49,9 @@ public class ListaLinear {
         array[posicao] = elemento;
     }
 
-    public int removeElementoInicio() throws Exception {
+    public int removeElementoInicio() throws Exception { // remove no INICIO
         if (n == 0) {
-            throw new Exception("Erro ao tentar remover o elemento da posicao 0. O array esta vazio!");
+            throw new Exception("Erro ao tentar remover o elemento da posicao INICIO array esta vazio!");
         }
         int resp = array[0];
         n--;
@@ -60,5 +60,40 @@ public class ListaLinear {
         }
 
         return resp;
+    }
+
+    public int removeElementoFim() throws Exception { // remove no FINAL
+        if (n == 0) {
+            throw new Exception("Erro ao remover elemento da posicao FIM do array.");
+        }
+        int resp = array[n - 1];
+        n--;
+        return resp;
+    }
+
+    public int removeElementoPosicaoDesejada(int posicao) throws Exception { // remove na posicao POS
+        if (n == 0) {
+            throw new Exception("Erro ao remover posicao desejada, o array esta vazio.");
+        }
+        if (posicao < 0 || posicao > n) {
+            throw new Exception(
+                    "Erro ao remover elemento da posicao desejada. Posicao eh maior ou menor que o array pre-definido");
+        }
+
+        int resp = array[posicao];
+        n--;
+        for (int i = posicao; i < n; i++) {
+            array[i] = array[i + 1];
+        }
+
+        return resp;
+    }
+
+    public void mostraLista() {             //MOSTRANDO elementos da LISTA
+        System.out.print("[ ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println("]");
     }
 }
