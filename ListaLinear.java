@@ -43,10 +43,11 @@ public class ListaLinear {
         if (posicao < 0 || posicao > n) {
             throw new Exception("Falha ao inserir elemento na posicao " + posicao + ". Posicao indisponivel!");
         }
-        for (int i = n; i > posicao; i++) {
+        for (int i = n; i > posicao; i--) {
             array[i] = array[i - 1];
         }
         array[posicao] = elemento;
+        n++;
     }
 
     public int removeElementoInicio() throws Exception { // remove no INICIO
@@ -75,13 +76,14 @@ public class ListaLinear {
         if (n == 0) {
             throw new Exception("Erro ao remover posicao desejada, o array esta vazio.");
         }
-        if (posicao < 0 || posicao > n) {
+        if (posicao < 0 || posicao >= n) {
             throw new Exception(
                     "Erro ao remover elemento da posicao desejada. Posicao eh maior ou menor que o array pre-definido");
         }
 
         int resp = array[posicao];
         n--;
+
         for (int i = posicao; i < n; i++) {
             array[i] = array[i + 1];
         }
@@ -95,5 +97,13 @@ public class ListaLinear {
             System.out.print(array[i] + " ");
         }
         System.out.println("]");
+    }
+
+    public boolean procuraElemento(int elemento) {
+        boolean retornoPesquisa = false;
+        for(int i = 0; i < n && retornoPesquisa == false; i++) {
+            retornoPesquisa = (array[i] == elemento);   
+        }
+        return retornoPesquisa;
     }
 }
