@@ -1,11 +1,10 @@
-import java.util.*;
 
 public class MainListaLinear {
     public static void main(String[] args) throws Exception {
         
         System.out.println("-------- LISTA LINEAR ---------");
 
-        ListaLinear lista = new ListaLinear();
+        ListaLinear lista = new ListaLinear(6);
         int x1, x2, x3;
         try {
         lista.inserirElementoInicio(1);
