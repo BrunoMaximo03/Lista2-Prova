@@ -25,6 +25,7 @@ public class MainListaLinear {
 
         System.out.println("Apos remocoes (" + x1 + ", " + x2 + ", " + x3 + "):");
         lista.mostraLista();
+        lista.inverteLista();
         System.out.println(lista.procuraElemento(4) ? "SIM" : "NAO");
         } catch(ArrayIndexOutOfBoundsException e) {
             System.out.println("Tentando acessar posicao inex");

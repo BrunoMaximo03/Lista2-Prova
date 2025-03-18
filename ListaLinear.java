@@ -105,4 +105,19 @@ public class ListaLinear {
         }
         return retornoPesquisa;
     }
+
+    public void inverteLista() {
+        int ultimo = n-1;
+        int primeiro = 0;
+        int aux;
+        while(ultimo>primeiro){
+            aux = array[ultimo];
+            array[ultimo]=array[primeiro];
+            array[primeiro]=aux;
+            primeiro++;
+            ultimo--;
+        }
+        mostraLista();
+    }
+    
 }
