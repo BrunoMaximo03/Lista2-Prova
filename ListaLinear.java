@@ -1,7 +1,7 @@
 
 public class ListaLinear {
-    private int array[];
-    private int n;
+    private int array[]; 
+    private int n; //numeros presentes no array
 
     public ListaLinear() {
         this(6);
@@ -38,7 +38,7 @@ public class ListaLinear {
         if (n >= array.length) {
             throw new Exception(
                     "Falha ao inserir elemento na posicao. O numero de elementos no array e maior do que o tamanho pre-definido.");
-        }
+        } 
         if (posicao < 0 || posicao > n) {
             throw new Exception("Falha ao inserir elemento na posicao " + posicao + ". Posicao indisponivel!");
         }
@@ -120,4 +120,18 @@ public class ListaLinear {
         mostraLista();
     }
     
+    public void inverteRecursivo() {
+        inverteRecursivo(0, n -1);   
+    } 
+    
+    public void inverteRecursivo(int primeiro, int ultimo) {
+        if(primeiro >= ultimo) {
+            return;
+        }
+        int temporario = array[primeiro];
+        array[primeiro] = array[ultimo];
+        array[ultimo] = temporario;
+        
+        inverteRecursivo(primeiro + 1, ultimo -1 );
+    }
 }

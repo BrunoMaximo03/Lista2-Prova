@@ -24,7 +24,7 @@ public class Pilha {
         if(n == 0) {
           throw new Exception("ERRO: falha ao remover elemento. Pilha vazia.");
         }
-        return array[n--];
+        return array[--n];
     }
 
     void mostraPilha() {
